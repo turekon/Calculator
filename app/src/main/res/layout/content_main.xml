@@ -31,13 +31,13 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/editOperand2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:ems="10"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

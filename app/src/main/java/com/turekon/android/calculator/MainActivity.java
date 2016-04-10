@@ -14,13 +14,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText operand1;
-    private EditText operand2;
+//    private EditText operand2;
     private Button btnAddition;
     private Button btnSubtraction;
     private Button btnDivision;
     private Button btnMultiplication;
     private Button btnClear;
     private TextView txtResult;
+    private double temporalResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         operand1 = (EditText) findViewById(R.id.editOperand1);
-        operand2 = (EditText) findViewById(R.id.editOperand2);
+//        operand2 = (EditText) findViewById(R.id.editOperand2);
         btnAddition = (Button) findViewById(R.id.btnAddition);
         btnSubtraction = (Button) findViewById(R.id.btnSubtraction);
         btnDivision = (Button) findViewById(R.id.btnDivision);
@@ -41,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         btnAddition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
-                    double oper1 = Double.parseDouble(operand1.getText().toString());
-                    double oper2 = Double.parseDouble(operand2.getText().toString());
-                    double theResult = oper1 + oper2;
-                    txtResult.setText(Double.toString(theResult));
+                if (operand1.getText().length() > 0) {
+                    double oper1 = Double.parseDouble(txtResult.getText().toString());
+                    double oper2 = Double.parseDouble(operand1.getText().toString());
+                    double temporalResult = oper1 + oper2;
+                    txtResult.setText(Double.toString(temporalResult));
+                    operand1.setText("");
                 }else{
                     Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
                 }
@@ -55,11 +57,12 @@ public class MainActivity extends AppCompatActivity {
         btnSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
-                    double oper1 = Double.parseDouble(operand1.getText().toString());
-                    double oper2 = Double.parseDouble(operand2.getText().toString());
-                    double theResult = oper1 - oper2;
-                    txtResult.setText(Double.toString(theResult));
+                if (operand1.getText().length() > 0) {
+                    double oper1 = Double.parseDouble(txtResult.getText().toString());
+                    double oper2 = Double.parseDouble(operand1.getText().toString());
+                    double temporalResult = oper1 - oper2;
+                    txtResult.setText(Double.toString(temporalResult));
+                    operand1.setText("");
                 }else{
                     Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
                 }
@@ -69,11 +72,12 @@ public class MainActivity extends AppCompatActivity {
         btnDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
-                    double oper1 = Double.parseDouble(operand1.getText().toString());
-                    double oper2 = Double.parseDouble(operand2.getText().toString());
-                    double theResult = oper1 / oper2;
-                    txtResult.setText(Double.toString(theResult));
+                if (operand1.getText().length() > 0) {
+                    double oper1 = Double.parseDouble(txtResult.getText().toString());
+                    double oper2 = Double.parseDouble(operand1.getText().toString());
+                    double temporalResult = oper1 / oper2;
+                    txtResult.setText(Double.toString(temporalResult));
+                    operand1.setText("");
                 }else{
                     Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
                 }
@@ -83,11 +87,12 @@ public class MainActivity extends AppCompatActivity {
         btnMultiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
-                    double oper1 = Double.parseDouble(operand1.getText().toString());
-                    double oper2 = Double.parseDouble(operand2.getText().toString());
-                    double theResult = oper1 * oper2;
-                    txtResult.setText(Double.toString(theResult));
+                if (operand1.getText().length() > 0) {
+                    double oper1 = Double.parseDouble(txtResult.getText().toString());
+                    double oper2 = Double.parseDouble(operand1.getText().toString());
+                    double temporalResult = oper1 * oper2;
+                    txtResult.setText(Double.toString(temporalResult));
+                    operand1.setText("");
                 }else{
                     Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
                 }
@@ -98,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 operand1.setText("");
-                operand2.setText("");
+//                operand2.setText("");
                 txtResult.setText("0.0");
                 operand1.requestFocus();
+                temporalResult = 0;
             }
         });
 
